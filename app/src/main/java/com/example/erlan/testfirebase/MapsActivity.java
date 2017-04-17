@@ -264,7 +264,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Toast.makeText(MapsActivity.this, "Location changed", Toast.LENGTH_SHORT).show();
         mLastLocation = location;
 
-
         double dLatitude = mLastLocation.getLatitude();
         double dLongitude = mLastLocation.getLongitude();
 //        marker = map.addMarker(new MarkerOptions().position(new LatLng(dLatitude, dLongitude))
@@ -280,14 +279,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (markersOnScreen.containsKey(title)){
             markersOnScreen.get(title).remove();
             markersOnScreen.remove(title);
-
         }
         BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.my_marker3);
         Locs loc = dataSnapshot.getValue(Locs.class);
         LatLng coordinates = new LatLng(loc.getLatitude(), loc.getLongitude());
         Marker newMarker = mMap.addMarker(new MarkerOptions().position(coordinates).title(dataSnapshot.getKey()).icon(icon));
         markersOnScreen.put(title, newMarker);
-
-
     }
 }
